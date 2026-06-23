@@ -1,0 +1,92 @@
+[
+  {
+    "nombre": "Cabecera Municipal",
+    "mesas": 14,
+    "cepeda": 2716,
+    "abelardo": 665,
+    "blancos": 44,
+    "nulos": 29,
+    "noMarcados": 5,
+    "totalVotantes": 3459
+  },
+  {
+    "nombre": "San Francisco",
+    "mesas": 3,
+    "cepeda": 382,
+    "abelardo": 145,
+    "blancos": 1,
+    "nulos": 2,
+    "noMarcados": 3,
+    "totalVotantes": 533
+  },
+  {
+    "nombre": "Bellavista",
+    "mesas": 2,
+    "cepeda": 276,
+    "abelardo": 62,
+    "blancos": 2,
+    "nulos": 1,
+    "noMarcados": 2,
+    "totalVotantes": 343
+  },
+  {
+    "nombre": "Bella Florida",
+    "mesas": 2,
+    "cepeda": 300,
+    "abelardo": 58,
+    "blancos": 6,
+    "nulos": 5,
+    "noMarcados": 2,
+    "totalVotantes": 371
+  },
+  {
+    "nombre": "Llanogrande",
+    "mesas": 1,
+    "cepeda": 198,
+    "abelardo": 25,
+    "blancos": 7,
+    "nulos": 7,
+    "noMarcados": 0,
+    "totalVotantes": 237
+  },
+  {
+    "nombre": "Tabiles",
+    "mesas": 4,
+    "cepeda": 657,
+    "abelardo": 198,
+    "blancos": 17,
+    "nulos": 14,
+    "noMarcados": 10,
+    "totalVotantes": 896
+  },
+  {
+    "nombre": "Tambillo de Bravos",
+    "mesas": 2,
+    "cepeda": 287,
+    "abelardo": 19,
+    "blancos": 5,
+    "nulos": 5,
+    "noMarcados": 0,
+    "totalVotantes": 316
+  },
+  {
+    "nombre": "Motilón",
+    "mesas": 1,
+    "cepeda": 71,
+    "abelardo": 8,
+    "blancos": 8,
+    "nulos": 1,
+    "noMarcados": 0,
+    "totalVotantes": 88
+  },
+  {
+    "nombre": "Laguna del Pueblo",
+    "mesas": 1,
+    "cepeda": 111,
+    "abelardo": 41,
+    "blancos": 1,
+    "nulos": 0,
+    "noMarcados": 0,
+    "totalVotantes": 153
+  }
+]

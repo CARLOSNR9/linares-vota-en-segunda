@@ -1,20 +1,332 @@
-{
-  "ultima_actualizacion": "2026-06-22T20:00:00Z",
-  "resumen": {
-    "total_mesas": 45,
-    "mesas_informadas": 45,
-    "potencial_votantes": 15000,
-    "total_votantes": 12500,
-    "votos_validos": 12200,
-    "votos_cepeda": 6000,
-    "votos_abelardo": 5800,
-    "votos_blanco": 400,
-    "votos_nulos": 300,
-    "votos_no_marcados": 0
+[
+  {
+    "id": 1,
+    "puesto": "Cabecera Municipal",
+    "mesa": "001",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 4,
+    "nulos": 3,
+    "noMarcados": 1,
+    "total": 250
   },
-  "puestos": [
-    { "nombre": "Casco Urbano", "votos_cepeda": 3000, "votos_abelardo": 2800, "total_votantes": 6000 },
-    { "nombre": "Corregimiento A", "votos_cepeda": 1500, "votos_abelardo": 2000, "total_votantes": 3600 },
-    { "nombre": "Corregimiento B", "votos_cepeda": 1500, "votos_abelardo": 1000, "total_votantes": 2900 }
-  ]
-}
+  {
+    "id": 2,
+    "puesto": "Cabecera Municipal",
+    "mesa": "002",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 4,
+    "nulos": 2,
+    "noMarcados": 1,
+    "total": 249
+  },
+  {
+    "id": 3,
+    "puesto": "Cabecera Municipal",
+    "mesa": "003",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 1,
+    "total": 248
+  },
+  {
+    "id": 4,
+    "puesto": "Cabecera Municipal",
+    "mesa": "004",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 1,
+    "total": 248
+  },
+  {
+    "id": 5,
+    "puesto": "Cabecera Municipal",
+    "mesa": "005",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 1,
+    "total": 248
+  },
+  {
+    "id": 6,
+    "puesto": "Cabecera Municipal",
+    "mesa": "006",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 247
+  },
+  {
+    "id": 7,
+    "puesto": "Cabecera Municipal",
+    "mesa": "007",
+    "cepeda": 194,
+    "abelardo": 48,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 247
+  },
+  {
+    "id": 8,
+    "puesto": "Cabecera Municipal",
+    "mesa": "008",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 9,
+    "puesto": "Cabecera Municipal",
+    "mesa": "009",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 10,
+    "puesto": "Cabecera Municipal",
+    "mesa": "010",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 11,
+    "puesto": "Cabecera Municipal",
+    "mesa": "011",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 12,
+    "puesto": "Cabecera Municipal",
+    "mesa": "012",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 13,
+    "puesto": "Cabecera Municipal",
+    "mesa": "013",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 14,
+    "puesto": "Cabecera Municipal",
+    "mesa": "014",
+    "cepeda": 194,
+    "abelardo": 47,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 246
+  },
+  {
+    "id": 15,
+    "puesto": "San Francisco",
+    "mesa": "001",
+    "cepeda": 128,
+    "abelardo": 49,
+    "blanco": 1,
+    "nulos": 1,
+    "noMarcados": 1,
+    "total": 180
+  },
+  {
+    "id": 16,
+    "puesto": "San Francisco",
+    "mesa": "002",
+    "cepeda": 127,
+    "abelardo": 48,
+    "blanco": 0,
+    "nulos": 1,
+    "noMarcados": 1,
+    "total": 177
+  },
+  {
+    "id": 17,
+    "puesto": "San Francisco",
+    "mesa": "003",
+    "cepeda": 127,
+    "abelardo": 48,
+    "blanco": 0,
+    "nulos": 0,
+    "noMarcados": 1,
+    "total": 176
+  },
+  {
+    "id": 18,
+    "puesto": "Bellavista",
+    "mesa": "001",
+    "cepeda": 138,
+    "abelardo": 31,
+    "blanco": 1,
+    "nulos": 1,
+    "noMarcados": 1,
+    "total": 172
+  },
+  {
+    "id": 19,
+    "puesto": "Bellavista",
+    "mesa": "002",
+    "cepeda": 138,
+    "abelardo": 31,
+    "blanco": 1,
+    "nulos": 0,
+    "noMarcados": 1,
+    "total": 171
+  },
+  {
+    "id": 20,
+    "puesto": "Bella Florida",
+    "mesa": "001",
+    "cepeda": 150,
+    "abelardo": 29,
+    "blanco": 3,
+    "nulos": 3,
+    "noMarcados": 1,
+    "total": 186
+  },
+  {
+    "id": 21,
+    "puesto": "Bella Florida",
+    "mesa": "002",
+    "cepeda": 150,
+    "abelardo": 29,
+    "blanco": 3,
+    "nulos": 2,
+    "noMarcados": 1,
+    "total": 185
+  },
+  {
+    "id": 22,
+    "puesto": "Llanogrande",
+    "mesa": "001",
+    "cepeda": 198,
+    "abelardo": 25,
+    "blanco": 7,
+    "nulos": 7,
+    "noMarcados": 0,
+    "total": 237
+  },
+  {
+    "id": 23,
+    "puesto": "Tabiles",
+    "mesa": "001",
+    "cepeda": 165,
+    "abelardo": 50,
+    "blanco": 5,
+    "nulos": 4,
+    "noMarcados": 3,
+    "total": 227
+  },
+  {
+    "id": 24,
+    "puesto": "Tabiles",
+    "mesa": "002",
+    "cepeda": 164,
+    "abelardo": 50,
+    "blanco": 4,
+    "nulos": 4,
+    "noMarcados": 3,
+    "total": 225
+  },
+  {
+    "id": 25,
+    "puesto": "Tabiles",
+    "mesa": "003",
+    "cepeda": 164,
+    "abelardo": 49,
+    "blanco": 4,
+    "nulos": 3,
+    "noMarcados": 2,
+    "total": 222
+  },
+  {
+    "id": 26,
+    "puesto": "Tabiles",
+    "mesa": "004",
+    "cepeda": 164,
+    "abelardo": 49,
+    "blanco": 4,
+    "nulos": 3,
+    "noMarcados": 2,
+    "total": 222
+  },
+  {
+    "id": 27,
+    "puesto": "Tambillo de Bravos",
+    "mesa": "001",
+    "cepeda": 144,
+    "abelardo": 10,
+    "blanco": 3,
+    "nulos": 3,
+    "noMarcados": 0,
+    "total": 160
+  },
+  {
+    "id": 28,
+    "puesto": "Tambillo de Bravos",
+    "mesa": "002",
+    "cepeda": 143,
+    "abelardo": 9,
+    "blanco": 2,
+    "nulos": 2,
+    "noMarcados": 0,
+    "total": 156
+  },
+  {
+    "id": 29,
+    "puesto": "Motilón",
+    "mesa": "001",
+    "cepeda": 71,
+    "abelardo": 8,
+    "blanco": 8,
+    "nulos": 1,
+    "noMarcados": 0,
+    "total": 88
+  },
+  {
+    "id": 30,
+    "puesto": "Laguna del Pueblo",
+    "mesa": "001",
+    "cepeda": 111,
+    "abelardo": 41,
+    "blanco": 1,
+    "nulos": 0,
+    "noMarcados": 0,
+    "total": 153
+  }
+]
