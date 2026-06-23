@@ -7,7 +7,7 @@ export default function Navbar() {
     { name: 'Puestos', path: '/puestos', icon: <MapPin size={20} /> },
     { name: 'Mesas', path: '/mesas', icon: <Layers size={20} /> },
     { name: 'Análisis', path: '/analisis', icon: <PieChart size={20} /> },
-    { name: 'Informe', path: '/informe', icon: <FileText size={20} /> },
+    // { name: 'Informe', path: '/informe', icon: <FileText size={20} /> }, // Oculto temporalmente a petición
   ];
 
   return (

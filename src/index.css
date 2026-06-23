@@ -25,6 +25,15 @@ body {
   color: #f8fafc; /* Slate 50 */
 }
 
+/* Utilidades para iPhone 17 Pro Max (y similares) */
+.pb-safe {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
 /* Scrollbar personalizado para tablas y contenedores */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
