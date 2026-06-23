@@ -16,3 +16,52 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Scrollbar personalizado para tablas y contenedores */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 20px;
+}
+
+/* Reglas de impresión institucional */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: portrait;
+  }
+  
+  body {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .avoid-page-break {
+    page-break-inside: avoid;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Asegurar que las sombras y bordes se vean limpios en papel */
+  .print-clean {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+}
