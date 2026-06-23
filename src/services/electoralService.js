@@ -34,6 +34,47 @@ class ElectoralService {
     return this.puestos.find(p => p.nombre === nombrePuesto);
   }
 
+  obtenerPuestoMasFavorableCepeda() {
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      const pctPrev = prev.cepeda / (prev.cepeda + prev.abelardo + prev.blancos + prev.nulos + prev.noMarcados);
+      const pctCurrent = current.cepeda / (current.cepeda + current.abelardo + current.blancos + current.nulos + current.noMarcados);
+      return (pctPrev > pctCurrent) ? prev : current;
+    });
+  }
+
+  obtenerPuestoMasFavorableAbelardo() {
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      const pctPrev = prev.abelardo / (prev.cepeda + prev.abelardo + prev.blancos + prev.nulos + prev.noMarcados);
+      const pctCurrent = current.abelardo / (current.cepeda + current.abelardo + current.blancos + current.nulos + current.noMarcados);
+      return (pctPrev > pctCurrent) ? prev : current;
+    });
+  }
+
+  obtenerPuestoMayorParticipacion() {
+    // Definido por total de votantes
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      return (prev.totalVotantes > current.totalVotantes) ? prev : current;
+    });
+  }
+
+  obtenerPuestoMenorParticipacion() {
+    // Definido por total de votantes
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      return (prev.totalVotantes < current.totalVotantes) ? prev : current;
+    });
+  }
+
+  obtenerPuestoConMasMesas() {
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      return (prev.mesas > current.mesas) ? prev : current;
+    });
+  }
+
   validateDataIntegrity() {
     console.log("Iniciando validación de integridad de datos electorales...");
     let hasErrors = false;
