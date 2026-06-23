@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <>
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 pb-safe">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 z-50 pb-safe transition-colors">
         <ul className="flex justify-around items-center h-16">
           {navItems.map((item) => (
             <li key={item.name} className="flex-1">
@@ -21,7 +21,7 @@ export default function Navbar() {
                 to={item.path}
                 className={({ isActive }) =>
                   `flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors duration-200 ${
-                    isActive ? 'text-primary' : 'text-gray-500 hover:text-gray-900'
+                    isActive ? 'text-primary dark:text-indigo-400' : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
                   }`
                 }
               >
@@ -33,8 +33,8 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {/* Desktop Side/Top Navigation (if needed later, currently kept simple as a top bar below header) */}
-      <nav className="hidden md:block bg-white shadow-sm sticky top-[88px] z-40">
+      {/* Desktop Side/Top Navigation */}
+      <nav className="hidden md:block bg-white dark:bg-gray-900 shadow-sm border-b border-gray-100 dark:border-gray-800 sticky top-[88px] z-40 transition-colors">
         <div className="container mx-auto">
           <ul className="flex justify-center space-x-8 h-14">
             {navItems.map((item) => (
@@ -43,7 +43,9 @@ export default function Navbar() {
                   to={item.path}
                   className={({ isActive }) =>
                     `flex items-center space-x-2 h-full px-4 border-b-2 transition-colors duration-200 ${
-                      isActive ? 'border-primary text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-primary/50'
+                      isActive 
+                        ? 'border-primary text-primary dark:border-indigo-400 dark:text-indigo-400 font-semibold' 
+                        : 'border-transparent text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-indigo-300 hover:border-primary/50'
                     }`
                   }
                 >
@@ -58,3 +60,4 @@ export default function Navbar() {
     </>
   );
 }
+

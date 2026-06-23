@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layers, Users, UserCheck, AlertTriangle, FileText, Ban } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { electoralService } from '../services/electoralService';
 
 import DashboardHeader from '../components/dashboard/DashboardHeader';
@@ -13,7 +14,6 @@ export default function Dashboard() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Carga de datos desde el servicio electoral
     const stats = electoralService.getEstadisticas();
     const puestosData = electoralService.getAllPuestos();
     
@@ -43,10 +43,23 @@ export default function Dashboard() {
     </div>
   );
 
-  const { resumen, ultima_actualizacion, puestos } = data;
+  const { resumen, ultima_actualizacion } = data;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
 
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-7xl mx-auto">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      className="max-w-7xl mx-auto"
+    >
       <DashboardHeader ultimaActualizacion={ultima_actualizacion} />
       
       {/* KPI Cards */}
@@ -55,41 +68,41 @@ export default function Dashboard() {
           title="Mesas Informadas" 
           value={`${resumen.mesas_informadas} / ${resumen.total_mesas}`}
           icon={Layers}
-          colorClass="text-blue-500 bg-blue-50"
+          colorClass="text-blue-500 bg-blue-50 dark:bg-blue-900/30"
         />
         <StatCard 
           title="Votantes" 
           value={new Intl.NumberFormat('es-CO').format(resumen.total_votantes)}
           icon={Users}
-          colorClass="text-indigo-500 bg-indigo-50"
+          colorClass="text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30"
         />
         <StatCard 
           title="Votos I. Cepeda" 
           value={new Intl.NumberFormat('es-CO').format(resumen.votos_cepeda)}
           icon={UserCheck}
-          colorClass="text-red-500 bg-red-50"
+          colorClass="text-red-500 bg-red-50 dark:bg-red-900/30"
         />
         <StatCard 
           title="Votos A. Espriella" 
           value={new Intl.NumberFormat('es-CO').format(resumen.votos_abelardo)}
           icon={UserCheck}
-          colorClass="text-blue-500 bg-blue-50"
+          colorClass="text-blue-500 bg-blue-50 dark:bg-blue-900/30"
         />
         <StatCard 
           title="Votos en Blanco" 
           value={new Intl.NumberFormat('es-CO').format(resumen.votos_blanco)}
           icon={FileText}
-          colorClass="text-gray-500 bg-gray-50"
+          colorClass="text-gray-500 bg-gray-50 dark:bg-gray-800"
         />
         <StatCard 
           title="Votos Nulos" 
           value={new Intl.NumberFormat('es-CO').format(resumen.votos_nulos)}
           icon={Ban}
-          colorClass="text-gray-700 bg-gray-100"
+          colorClass="text-gray-700 bg-gray-100 dark:bg-gray-700"
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <div className="lg:col-span-2">
           <MainChart resumen={resumen} />
         </div>
@@ -102,6 +115,7 @@ export default function Dashboard() {
       
       <QuickIndicators resumen={resumen} />
 
-    </div>
+    </motion.div>
   );
 }
+
