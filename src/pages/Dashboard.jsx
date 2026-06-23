@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layers, Users, UserCheck, AlertTriangle, FileText, Ban } from 'lucide-react';
-import dataJson from '../data/resultados-linares-2026.json';
+import { electoralService } from '../services/electoralService';
 
 import DashboardHeader from '../components/dashboard/DashboardHeader';
 import StatCard from '../components/dashboard/StatCard';
@@ -13,8 +13,28 @@ export default function Dashboard() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Simulando carga de datos estáticos
-    setData(dataJson);
+    // Carga de datos desde el servicio electoral
+    const stats = electoralService.getEstadisticas();
+    const puestosData = electoralService.getAllPuestos();
+    
+    const formattedData = {
+      ultima_actualizacion: new Date().toISOString(),
+      resumen: {
+        total_mesas: stats.totalMesas,
+        mesas_informadas: stats.totalMesas,
+        potencial_votantes: stats.potencialElectoral,
+        total_votantes: stats.totalVotantes,
+        votos_cepeda: stats.cepeda,
+        votos_abelardo: stats.abelardo,
+        votos_blanco: stats.blancos,
+        votos_nulos: stats.nulos,
+        votos_no_marcados: stats.noMarcados,
+        votos_validos: stats.cepeda + stats.abelardo + stats.blancos
+      },
+      puestos: puestosData
+    };
+    
+    setData(formattedData);
   }, []);
 
   if (!data) return (
