@@ -75,6 +75,66 @@ class ElectoralService {
     });
   }
 
+  buscarMesas(query) {
+    if (!query) return this.mesas;
+    const lowerQuery = query.toLowerCase();
+    return this.mesas.filter(m => 
+      m.puesto.toLowerCase().includes(lowerQuery) || 
+      m.mesa.toLowerCase().includes(lowerQuery) ||
+      `mesa ${m.mesa}`.toLowerCase().includes(lowerQuery)
+    );
+  }
+
+  filtrarMesas(puesto, numeroMesa) {
+    let filtradas = this.mesas;
+    if (puesto && puesto !== 'Todos') {
+      filtradas = filtradas.filter(m => m.puesto === puesto);
+    }
+    if (numeroMesa && numeroMesa !== 'Todas') {
+      filtradas = filtradas.filter(m => m.mesa === numeroMesa);
+    }
+    return filtradas;
+  }
+
+  obtenerMesaMayorVotacion() {
+    if (!this.mesas || this.mesas.length === 0) return null;
+    return this.mesas.reduce((prev, current) => (prev.total > current.total) ? prev : current);
+  }
+
+  obtenerMesaMenorVotacion() {
+    if (!this.mesas || this.mesas.length === 0) return null;
+    return this.mesas.reduce((prev, current) => (prev.total < current.total) ? prev : current);
+  }
+
+  obtenerMesaMayorApoyoCepeda() {
+    if (!this.mesas || this.mesas.length === 0) return null;
+    return this.mesas.reduce((prev, current) => {
+      // Evitamos divisiones por cero
+      const pctPrev = prev.total > 0 ? (prev.cepeda / prev.total) : 0;
+      const pctCurrent = current.total > 0 ? (current.cepeda / current.total) : 0;
+      return (pctPrev > pctCurrent) ? prev : current;
+    });
+  }
+
+  obtenerMesaMayorApoyoAbelardo() {
+    if (!this.mesas || this.mesas.length === 0) return null;
+    return this.mesas.reduce((prev, current) => {
+      const pctPrev = prev.total > 0 ? (prev.abelardo / prev.total) : 0;
+      const pctCurrent = current.total > 0 ? (current.abelardo / current.total) : 0;
+      return (pctPrev > pctCurrent) ? prev : current;
+    });
+  }
+
+  obtenerMesaMasVotosNulos() {
+    if (!this.mesas || this.mesas.length === 0) return null;
+    return this.mesas.reduce((prev, current) => (prev.nulos > current.nulos) ? prev : current);
+  }
+
+  obtenerMesaMasVotosBlancos() {
+    if (!this.mesas || this.mesas.length === 0) return null;
+    return this.mesas.reduce((prev, current) => (prev.blanco > current.blanco) ? prev : current);
+  }
+
   validateDataIntegrity() {
     console.log("Iniciando validación de integridad de datos electorales...");
     let hasErrors = false;
