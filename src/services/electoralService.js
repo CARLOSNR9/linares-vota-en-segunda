@@ -135,6 +135,77 @@ class ElectoralService {
     return this.mesas.reduce((prev, current) => (prev.blanco > current.blanco) ? prev : current);
   }
 
+  obtenerPuestoMayorDiferencia() {
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      const diffPrev = Math.abs(prev.cepeda - prev.abelardo);
+      const diffCurrent = Math.abs(current.cepeda - current.abelardo);
+      return (diffPrev > diffCurrent) ? prev : current;
+    });
+  }
+
+  obtenerPuestoMenorDiferencia() {
+    if (!this.puestos || this.puestos.length === 0) return null;
+    return this.puestos.reduce((prev, current) => {
+      const diffPrev = Math.abs(prev.cepeda - prev.abelardo);
+      const diffCurrent = Math.abs(current.cepeda - current.abelardo);
+      return (diffPrev < diffCurrent) ? prev : current;
+    });
+  }
+
+  obtenerTopMesasCepeda(limite = 5) {
+    return [...this.mesas].sort((a, b) => b.cepeda - a.cepeda).slice(0, limite);
+  }
+
+  obtenerTopMesasAbelardo(limite = 5) {
+    return [...this.mesas].sort((a, b) => b.abelardo - a.abelardo).slice(0, limite);
+  }
+
+  obtenerTopMesasParticipacion(limite = 5) {
+    return [...this.mesas].sort((a, b) => b.total - a.total).slice(0, limite);
+  }
+
+  obtenerTopMesasNulos(limite = 5) {
+    return [...this.mesas].sort((a, b) => b.nulos - a.nulos).slice(0, limite);
+  }
+
+  generarInsights() {
+    const insights = [];
+    const stats = this.estadisticas;
+    
+    // Ganador general
+    const ganador = stats.cepeda > stats.abelardo ? 'Iván Cepeda' : 'Abelardo de la Espriella';
+    const diferencia = Math.abs(stats.cepeda - stats.abelardo);
+    
+    insights.push(`El candidato ${ganador} obtuvo la mayoría de los votos del municipio, asegurando la victoria en esta segunda vuelta.`);
+    insights.push(`La diferencia entre los candidatos a nivel municipal fue de ${new Intl.NumberFormat('es-CO').format(diferencia)} votos.`);
+    
+    const puestoMasVotos = this.obtenerPuestoMayorParticipacion();
+    if (puestoMasVotos) {
+      insights.push(`El puesto de votación "${puestoMasVotos.nombre}" aportó el mayor volumen de votación con ${new Intl.NumberFormat('es-CO').format(puestoMasVotos.totalVotantes)} sufragios.`);
+    }
+
+    const mejorPuestoCepeda = this.obtenerPuestoMasFavorableCepeda();
+    if (mejorPuestoCepeda) {
+      const pct = (mejorPuestoCepeda.cepeda / mejorPuestoCepeda.totalVotantes * 100).toFixed(1);
+      insights.push(`El respaldo más fuerte para Iván Cepeda se registró en "${mejorPuestoCepeda.nombre}", donde alcanzó el ${pct}% de los votos de ese sector.`);
+    }
+
+    const mejorPuestoAbelardo = this.obtenerPuestoMasFavorableAbelardo();
+    if (mejorPuestoAbelardo) {
+      const pct = (mejorPuestoAbelardo.abelardo / mejorPuestoAbelardo.totalVotantes * 100).toFixed(1);
+      insights.push(`"${mejorPuestoAbelardo.nombre}" fue el territorio donde Abelardo de la Espriella obtuvo su mejor desempeño relativo, logrando un ${pct}% de apoyo.`);
+    }
+
+    const menorDiferencia = this.obtenerPuestoMenorDiferencia();
+    if (menorDiferencia) {
+      const diff = Math.abs(menorDiferencia.cepeda - menorDiferencia.abelardo);
+      insights.push(`La contienda territorial más reñida ocurrió en "${menorDiferencia.nombre}", con una separación de apenas ${diff} votos entre ambos candidatos.`);
+    }
+
+    return insights;
+  }
+
   validateDataIntegrity() {
     console.log("Iniciando validación de integridad de datos electorales...");
     let hasErrors = false;
