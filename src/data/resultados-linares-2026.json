@@ -1,0 +1,20 @@
+{
+  "ultima_actualizacion": "2026-06-22T20:00:00Z",
+  "resumen": {
+    "total_mesas": 45,
+    "mesas_informadas": 45,
+    "potencial_votantes": 15000,
+    "total_votantes": 12500,
+    "votos_validos": 12200,
+    "votos_cepeda": 6000,
+    "votos_abelardo": 5800,
+    "votos_blanco": 400,
+    "votos_nulos": 300,
+    "votos_no_marcados": 0
+  },
+  "puestos": [
+    { "nombre": "Casco Urbano", "votos_cepeda": 3000, "votos_abelardo": 2800, "total_votantes": 6000 },
+    { "nombre": "Corregimiento A", "votos_cepeda": 1500, "votos_abelardo": 2000, "total_votantes": 3600 },
+    { "nombre": "Corregimiento B", "votos_cepeda": 1500, "votos_abelardo": 1000, "total_votantes": 2900 }
+  ]
+}
